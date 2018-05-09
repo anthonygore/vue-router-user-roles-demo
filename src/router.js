@@ -3,7 +3,7 @@ import Router from "vue-router";
 import Home from "./views/Home.vue";
 import Protected from "./views/Protected.vue";
 import Profile from "./views/Profile.vue";
-import { USER_TYPE_GUEST, USER_TYPE_REGISTERED, ROUTE_NAME_HOME, ROUTE_NAME_PROFILE, ROUTE_NAME_PROTECTED } from "./constants";
+import { USER_ROLE_GUEST, USER_ROLE_REGISTERED, ROUTE_NAME_HOME, ROUTE_NAME_PROFILE, ROUTE_NAME_PROTECTED } from "./constants";
 
 Vue.use(Router);
 
@@ -21,7 +21,7 @@ let router = new Router({
       meta: {
         permissions: [
           {
-            type: USER_TYPE_GUEST,
+            role: USER_ROLE_GUEST,
             access: false,
             redirect: ROUTE_NAME_HOME
           }
@@ -35,12 +35,12 @@ let router = new Router({
       meta: {
         permissions: [
           {
-            type: USER_TYPE_REGISTERED,
+            role: USER_ROLE_REGISTERED,
             access: (user, to) => user.id === to.params.id,
             redirect: ROUTE_NAME_HOME
           },
           {
-            type: USER_TYPE_GUEST,
+            role: USER_ROLE_GUEST,
             access: false,
             redirect: ROUTE_NAME_HOME
           }

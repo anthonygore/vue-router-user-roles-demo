@@ -1,14 +1,14 @@
 # vue-router-permissions-demo
 
-A demo of [vue-router-permissions](https://github.com/anthonygore/vue-router-permissions/) Vue.js plugin. 
+A demo of [vue-router-user-roles](https://github.com/anthonygore/vue-router-user-roles/) plugin. 
 
-Install
+Install:
 
 ````
 npm i
 ````
 
-Serve
+Serve:
 
 ````
 npm run serve

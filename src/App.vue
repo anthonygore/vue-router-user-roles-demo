@@ -2,43 +2,43 @@
   <div id="app">
     <div>
       <span v-if="isGuest">Hi guest! You can login </span>
-      <span v-else>Hi {{ $protect.user.name }}! You can logout </span>
+      <span v-else>Hi {{ $user.get().name }}! You can logout </span>
       <button @click="toggleAuth">here</button>.
     </div>
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/protected">Protected</router-link>
       <span v-if="!isGuest"> |
-        <router-link :to="{ name: 'profile', params: { id: $protect.user.id }}">Profile</router-link>
+        <router-link :to="{ name: 'profile', params: { id: $user.get().id }}">Profile</router-link>
       </span>
     </div>
     <router-view/>
   </div>
 </template>
 <script>
-  import { USER_TYPE_GUEST, USER_TYPE_REGISTERED } from "./constants";
+  import { USER_ROLE_GUEST, USER_ROLE_REGISTERED } from "./constants";
 
   export default {
     computed: {
       isGuest() {
-        return this.$protect.user.type === USER_TYPE_GUEST;
+        return this.$user.get().role === USER_ROLE_GUEST;
       }
     },
     methods: {
       toggleAuth() {
         let user;
-        if (this.$protect.user.type === USER_TYPE_GUEST) {
+        if (this.$user.get().role === USER_ROLE_GUEST) {
           user = {
-            type: USER_TYPE_REGISTERED,
+            role: USER_ROLE_REGISTERED,
             name: "George",
             id: "1234"
           }
         } else {
           user = {
-            type: USER_TYPE_GUEST
+            role: USER_ROLE_GUEST
           };
         }
-        this.$protect.user = user;
+        this.$user.set(user);
       }
     }
   }

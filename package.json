@@ -1,5 +1,5 @@
 {
-  "name": "vue-router-permissions-demo",
+  "name": "vue-router-user-roles-demo",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -19,7 +19,7 @@
     "@vue/eslint-config-prettier": "3.0.0-beta.7",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",
-    "vue-router-permissions": "^0.1.2",
+    "vue-router-permissions": "^0.1.5",
     "vue-template-compiler": "^2.5.13",
     "vuex": "^3.0.1"
   },
