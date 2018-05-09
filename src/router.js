@@ -3,7 +3,13 @@ import Router from "vue-router";
 import Home from "./views/Home.vue";
 import Protected from "./views/Protected.vue";
 import Profile from "./views/Profile.vue";
-import { USER_ROLE_GUEST, USER_ROLE_REGISTERED, ROUTE_NAME_HOME, ROUTE_NAME_PROFILE, ROUTE_NAME_PROTECTED } from "./constants";
+import {
+  USER_ROLE_GUEST,
+  USER_ROLE_REGISTERED,
+  ROUTE_NAME_HOME,
+  ROUTE_NAME_PROFILE,
+  ROUTE_NAME_PROTECTED
+} from "./constants";
 
 Vue.use(Router);
 

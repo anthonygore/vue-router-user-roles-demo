@@ -16,32 +16,32 @@
   </div>
 </template>
 <script>
-  import { USER_ROLE_GUEST, USER_ROLE_REGISTERED } from "./constants";
+import { USER_ROLE_GUEST, USER_ROLE_REGISTERED } from "./constants";
 
-  export default {
-    computed: {
-      isGuest() {
-        return this.$user.get().role === USER_ROLE_GUEST;
+export default {
+  computed: {
+    isGuest() {
+      return this.$user.get().role === USER_ROLE_GUEST;
+    }
+  },
+  methods: {
+    toggleAuth() {
+      let user;
+      if (this.$user.get().role === USER_ROLE_GUEST) {
+        user = {
+          role: USER_ROLE_REGISTERED,
+          name: "George",
+          id: "1234"
+        };
+      } else {
+        user = {
+          role: USER_ROLE_GUEST
+        };
       }
-    },
-    methods: {
-      toggleAuth() {
-        let user;
-        if (this.$user.get().role === USER_ROLE_GUEST) {
-          user = {
-            role: USER_ROLE_REGISTERED,
-            name: "George",
-            id: "1234"
-          }
-        } else {
-          user = {
-            role: USER_ROLE_GUEST
-          };
-        }
-        this.$user.set(user);
-      }
+      this.$user.set(user);
     }
   }
+};
 </script>
 <style lang="scss">
 #app {

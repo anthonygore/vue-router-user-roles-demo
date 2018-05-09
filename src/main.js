@@ -1,10 +1,10 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
-import VueRouterPermissions from "vue-router-permissions";
+import VueRouterUserRoles from "vue-router-user-roles";
 import { USER_ROLE_GUEST } from "./constants";
 
-Vue.use(VueRouterPermissions, router);
+Vue.use(VueRouterUserRoles, { router });
 
 Vue.config.productionTip = false;
 
@@ -18,7 +18,3 @@ getUser.then(user => {
     router
   }).$mount("#app");
 });
-
-
-
-
